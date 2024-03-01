@@ -1,1 +1,23 @@
-<p>home works!</p>
+<div class="container py-3">
+  <div class="d-flex align-item-center">
+    <form class="inputCustomer d-flex">
+      <input type="search" class="form-control mx-2" placeholder="Search customers...">
+      <button class="btn btn-primary">Search</button>
+    </form>
+  </div>
+</div>
+
+<div *ngFor="let customer of allCustomers">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top imgCard" src="{{customer.logo}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{customer.businessName}}</h5>
+      <p class="card-text">Vat Number: {{customer.vatNumber}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{customer.phoneNumber}}</li>
+      <li class="list-group-item">{{customer.email}}</li>
+      <li class="list-group-item">{{customer.customerType}}</li>
+    </ul>
+  </div>
+</div>
