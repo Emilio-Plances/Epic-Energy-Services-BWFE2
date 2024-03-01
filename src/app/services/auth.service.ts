@@ -61,7 +61,6 @@ export class AuthService {
 
   logOut(){
     localStorage.removeItem('user');
-    localStorage.removeItem('role');
     this.authorized.next(null);
     this.router.navigate(['/home']);
   }

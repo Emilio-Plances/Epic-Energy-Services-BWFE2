@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NoLogGuard } from '../guards/no-log.guard';
+
 
 const routes: Routes = [
   { path: '', pathMatch:'full', redirectTo:'/auth/login'},
-  { path: 'login',component: LoginComponent, title:"EpicEnergy | Login" },
+  { path: 'login',component: LoginComponent, title:"EpicEnergy | Login"},
   { path: 'register', component: RegisterComponent, title:"EpicEnergy | Register"}
 ];
 

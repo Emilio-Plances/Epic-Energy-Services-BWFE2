@@ -23,22 +23,19 @@ export class LoginComponent {
   ngOnInit(){
     this.form = this.fb.group({
       username: this.fb.control(null,[Validators.required]),
-      password: this.fb.control(null,[Validators.required]),
+      password: this.fb.control(null,[Validators.required])
     })
   }
 
   submit(){
     this.loading=true;
     this.authService.login(this.form.value)
-    .pipe(tap(()=>{
-      this.loading=false;
-      this.router.navigate([``]);
-    }),
+    .pipe(tap(()=>this.loading=false),
     catchError(error=>{
       this.loading=false;
       this.failedLogin=true;
       throw error;
     })
-    ).subscribe()
+    ).subscribe(()=>this.router.navigate([`/home`]));
   }
 }
